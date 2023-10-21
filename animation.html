@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .hov {
+            width: 100px;
+            height: 100px;
+            margin: auto;
+            background-color: red;
+            transition: all 0.5s linear 0.5s;
+        }
+
+        .hov:hover {
+            transform: scale(1.2);
+        }
+
+        .onLoad {
+            width: 100px;
+            height: 100px;
+            margin: auto;
+            background-color: #ff0000;
+            opacity: 0;
+            animation: 2s linear 1s 2 zeroToOne;
+        }
+
+        @keyframes zeroToOne {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .slide {
+            width: 100px;
+            height: 100px;
+            background-color: #ff0000;
+            opacity: 1;
+            transform: translateX(1300%);
+            transition: transform 2s, opacity 2s;
+
+        }
+
+        .slide:hover {
+            opacity: 0;
+            transform: translateX(0%)
+        }
+
+        .rotate {
+            width: 100px;
+            height: 100px;
+            margin: auto;
+            background-color: #ff0000;
+            transition: all 3s linear;
+        }
+
+        .rotate:hover {
+            transform: rotate(360deg)
+        }
+
+        .radius {
+            width: 100px;
+            height: 100px;
+            margin: auto;
+            background-color: #ff0000;
+            transition: all 1s linear;
+        }
+
+        .radius:hover {
+            border-radius: 50%;
+        }
+
+        .container {
+            width: 100%;
+            border: 2px solid black;
+            padding: 10px;
+        }
+
+        .container>div {
+            width: 100px;
+            height: 100px;
+
+            background-color: #ff0000;
+            border: 3px solid #4c0303;
+            margin-bottom: 30px;
+            margin-top: 30px;
+        }
+
+        .container>div:nth-child(1) {
+            animation: 3s linear 1s 1 race;
+        }
+        .container>div:nth-child(2) {
+            animation: 3s ease 1s 1 race;
+        }
+        .container>div:nth-child(3) {
+            animation: 3s ease-in 1s 1 race;
+        }
+        .container>div:nth-child(4) {
+            animation: 3s ease-in-out 1s 1 race;
+        }
+        .container>div:nth-child(5) {
+            animation: 3s ease-out 1s 1 race;
+        }
+        .container>div:nth-child(6) {
+            animation: 3s cubic-bezier(0,.98,.93,.34) 1s 1 race;
+        }
+        .container>div:nth-child(7) {
+            animation: 3s cubic-bezier(.63,1.34,.98,.02) 1s 1 race;
+        }
+        .container>div:nth-child(8) {
+            animation: 3s cubic-bezier(.9,2.02,.98,-0.4) 1s 1 race;
+        }
+
+        @keyframes race {
+            0% {
+                transform: translateX(0%);
+            }
+
+            100% {
+                transform: translateX(1200%);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Problem 1: hover</h1>
+    <div class="hov">
+    </div>
+
+    <h1>Problem 2: on load</h1>
+    <div class="onLoad">
+    </div>
+
+    <h1>Problem 3: slide in</h1>
+    <div class="slide">
+    </div>
+
+    <h1>Problem 4: rotate</h1>
+    <div class="rotate">
+    </div>
+
+    <h1>Problem 5: border-radius</h1>
+    <div class="radius">
+    </div>
+
+    <h1>Problem 6: translate on load with easing functions</h1>
+    <div class="container">
+        <div class="ease"></div>
+        <div class="ease-in"></div>
+        <div class="ease-out"></div>
+        <div class="ease-in-out"></div>
+        <div class="linear"></div>
+        <div class="cubic-bezier-1"></div>
+        <div class="cubic-bezier-2"></div>
+        <div class="cubic-bezier-3"></div>
+    </div>
+
+
+</body>
+
+</html>
